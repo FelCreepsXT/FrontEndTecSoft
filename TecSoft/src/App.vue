@@ -3,7 +3,6 @@
     <router-view></router-view>
   </v-app>
 </template>
-s
 <script>
 
 export default {

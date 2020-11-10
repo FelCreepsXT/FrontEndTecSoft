@@ -5,7 +5,10 @@ class PackagesService{
         return http.get('/packages');
     }
     getAllByState(id){
-        return http.get(`/packages/state?state=${id}`)
+        return http.get(`/packages/state/${id}`)
+    }
+    updatePackageState(id,value){
+        return http.put(`packages/updatestate/${id}?value=${value}`);
     }
 }
 

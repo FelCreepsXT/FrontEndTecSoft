@@ -10,6 +10,9 @@
     <div class="my-2">
       <v-btn @click="navigateToHomeDealer(1)">Dealer</v-btn>
     </div>
+    <div class="my-2">
+      <v-btn @click="navigateToHomeDispatcher(1)">Dispatcher</v-btn>
+    </div>
   </div>
 </template>
 
@@ -20,15 +23,18 @@ export default {
   },
   methods:{
     navigateToHomeCustomer(id){
-      this.$router.push({ name: 'HomeCustomerPrincipal', params: {id:id} });
+      this.$route
+      this.$router.push({ name: 'HomeCustomer', params: {id:id} });
     },
     navigateToHomeDealer(id){
-      this.$router.push({ name: 'AppDealer', params: {id:id}});
+      this.$router.push({ name: 'HomeDealer', params: {id:id}});
     },
     navigateToHomeCompany(id){
       this.$router.push({ name: 'AppCompany', params: {id:id} });
+    },
+    navigateToHomeDispatcher(id){
+      this.$router.push({name: 'HomeDispatcher', params: {id:id}});
     }
-
   }
 }
 </script>

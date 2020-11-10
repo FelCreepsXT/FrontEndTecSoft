@@ -17,13 +17,8 @@ const routes = [
     children: [
       {
         path: 'home',
-        name: 'HomeDealerPrincipal',
+        name: 'HomeDealer',
         component: () => import('../views/HomeDealer')
-      },
-      {
-        path: 'delivery',
-        name: 'Delivery',
-        component: () => import('../components/Delivery')
       }
     ]
   },
@@ -37,7 +32,7 @@ const routes = [
     children:[
       {
         path: 'home',
-        name: 'HomeCustomerPrincipal',
+        name: 'HomeCustomer',
         component: () => import('../views/HomeCustomer')
       },
       {
@@ -46,18 +41,52 @@ const routes = [
         component: () => import('../components/FindCompanies')
       },
       {
-        path: 'about',
-        name: 'CustomerAbout',
-        component: () => import('../views/About')
-      },
-      {
         path: 'state',
         name: 'StatePackage',
         component: () => import('../components/PackageState')
       }
     ]
   },
+  {
+    path: '/dispatcher',
+    name: 'AppDispatcher',
+    component: () => import('../views/AppDispatcher'),
+    children: [
+      {
+        path: 'packages',
+        name: 'TravelPackage',
+        component: () => import('../components/TravelPackage'),
+        children: [
+          {
+            path: '1',
+            name: 'State1',
+            component: () => import('../components/StatePackage/PackageState1')
+          },
+          {
+            path: '2',
+            name: 'State2',
+            component: () => import('../components/StatePackage/PackageState2')
+          },
+          {
+            path: '3',
+            name: 'State3',
+            component: () => import('../components/StatePackage/PackageState3')
+          },
+          {
+            path: '4',
+            name: 'State4',
+            component: () => import('../components/StatePackage/PackageState4')
+          }
+        ]
+      },
+      {
+        path: 'home',
+        name: 'HomeDispatcher',
+        component: () => import('../views/HomeDispatcher')
+      }
 
+    ]
+  },
   {
     path: '/company/:id',
     name: 'HomeCompany',

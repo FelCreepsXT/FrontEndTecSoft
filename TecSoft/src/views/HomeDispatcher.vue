@@ -1,10 +1,10 @@
 <template>
-  <v-card></v-card>
+  <h1>Hola dispatcher</h1>
 </template>
 
 <script>
 export default {
-name: "Package"
+name: "HomeDispatcher"
 }
 </script>
 

@@ -19,6 +19,34 @@
             </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
+        <v-card-actions v-if="compare ==='/dispatcher/packages/3'">
+          <v-btn
+              outlined
+              rounded
+              text
+              @click="updateState(pack.id,-1)"
+          >
+            AtrasOtra
+          </v-btn>
+        </v-card-actions>
+        <v-card-actions v-if="compare ==='/dealer/packages/3'">
+          <v-btn
+              outlined
+              rounded
+              text
+              @click="updateState(pack.id,1)"
+          >
+            Adelante
+          </v-btn>
+          <v-btn
+              outlined
+              rounded
+              text
+              @click="updateState(pack.id,-1)"
+          >
+            Atras
+          </v-btn>
+        </v-card-actions>
       </v-card>
     </div>
   </v-card>
@@ -28,15 +56,13 @@
 import PackageService from '@/services/Delivery/packages-service'
 
 export default {
-  name: "ShowDeliveryState",
+  name: "PackageState3",
   data(){
     return {
-      packages: []
+      packages: [],
+      compare: this.$route.path
     }
   },
-  props: [
-    'update'
-  ],
   methods: {
     retrievePackageState(id){
       PackageService.getAllByState(id)
@@ -49,9 +75,19 @@ export default {
     },
     refresh(id){
       this.retrievePackageState(id);
+    },
+    updateState(id,value){
+      PackageService.updatePackageState(id,value)
+          .then(() => {
+            this.refresh(3);
+          })
+          .catch(e => {
+            console.log(e);
+          })
     }
   },
   mounted() {
+    console.log(this.$route.path);
     this.retrievePackageState(3);
   }
 }

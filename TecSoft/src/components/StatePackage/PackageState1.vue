@@ -19,6 +19,16 @@
             </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
+        <v-card-actions>
+          <v-btn
+              outlined
+              rounded
+              text
+              @click="updateState(pack.id,1)"
+          >
+            Adelante
+          </v-btn>
+        </v-card-actions>
       </v-card>
     </div>
   </v-card>
@@ -28,15 +38,12 @@
 import PackageService from '@/services/Delivery/packages-service'
 
 export default {
-  name: "ShowDeliveryState",
+  name: "PackageState1",
   data(){
     return {
       packages: []
     }
   },
-  props: [
-    'update'
-  ],
   methods: {
     retrievePackageState(id){
       PackageService.getAllByState(id)
@@ -49,6 +56,15 @@ export default {
     },
     refresh(id){
       this.retrievePackageState(id);
+    },
+    updateState(id,value){
+      PackageService.updatePackageState(id,value)
+      .then(() => {
+        this.refresh(1);
+      })
+      .catch(e => {
+        console.log(e);
+      })
     }
   },
   mounted() {

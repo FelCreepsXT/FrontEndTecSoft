@@ -59,22 +59,22 @@ const routes = [
         children: [
           {
             path: '1',
-            name: 'State1',
+            name: 'DState1',
             component: () => import('../components/StatePackage/PackageState1')
           },
           {
             path: '2',
-            name: 'State2',
+            name: 'DState2',
             component: () => import('../components/StatePackage/PackageState2')
           },
           {
             path: '3',
-            name: 'State3',
+            name: 'DState3',
             component: () => import('../components/StatePackage/PackageState3')
           },
           {
             path: '4',
-            name: 'State4',
+            name: 'DState4',
             component: () => import('../components/StatePackage/PackageState4')
           }
         ]

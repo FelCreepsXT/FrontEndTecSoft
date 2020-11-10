@@ -13,8 +13,6 @@
         <router-view></router-view>
       </v-container>
     </v-main>
-    <v-footer app>
-    </v-footer>
   </v-card>
 </template>
 
@@ -22,6 +20,10 @@
 
 export default {
   name: "TravelPackage",
+  data(){
+    return{
+    }
+  },
   components: {
   },
 }

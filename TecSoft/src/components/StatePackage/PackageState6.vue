@@ -49,6 +49,16 @@ export default {
     },
     refresh(id){
       this.retrievePackageState(id);
+    },
+    updateState(id,value){
+      PackageService.updatePackageState(id,value)
+          .then(response => {
+            this.packages = response.data;
+            this.refresh(1);
+          })
+          .catch(e => {
+            console.log(e);
+          })
     }
   },
   mounted() {

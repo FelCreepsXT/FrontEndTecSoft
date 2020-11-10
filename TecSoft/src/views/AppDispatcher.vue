@@ -9,7 +9,7 @@
           <router-link to="/dispatcher/home">Hola</router-link>
         </v-btn>
         <v-btn>
-          <router-link to="/dispatcher/packages">Delivery</router-link>
+          <router-link to="/dispatcher/packages/1">Delivery</router-link>
         </v-btn>
       </v-toolbar-items>
     </v-app-bar>
